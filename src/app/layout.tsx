@@ -1,12 +1,13 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import APP from "@/constants/APP";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Marina CMS",
-  description: "Reusable Admin Dashboard - Next.js 14 + Shadcn/ui",
+  title: APP.name,
+  description: APP.description,
 };
 
 export default function RootLayout({
