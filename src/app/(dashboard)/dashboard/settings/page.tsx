@@ -10,7 +10,9 @@ import {
 import { Checkbox } from "@/components/shadcn/ui/checkbox";
 import { Input } from "@/components/shadcn/ui/input";
 
-export default function Component() {
+export const metadata = { title: "Settings" };
+
+export default function Settings() {
   return (
     <>
       <Card>

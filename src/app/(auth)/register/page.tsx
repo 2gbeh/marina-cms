@@ -11,6 +11,8 @@ import {
 import { Input } from "@/components/shadcn/ui/input"
 import { Label } from "@/components/shadcn/ui/label"
 
+export const metadata = { title: "Register" };
+
 export default function Register() {
   return (
     <Card className="mx-auto max-w-sm">

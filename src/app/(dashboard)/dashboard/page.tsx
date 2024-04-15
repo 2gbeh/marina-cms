@@ -30,6 +30,8 @@ import {
   TableRow,
 } from "@/components/shadcn/ui/table";
 
+export const metadata = { title: "Dashboard" };
+
 export default function Dashboard() {
   return (
     <>
