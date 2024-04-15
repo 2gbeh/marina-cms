@@ -1,4 +1,4 @@
-import { links } from "../APP";
+import { links } from "@/constants/APP";
 
 export const AppFooter = () => {
   return (
