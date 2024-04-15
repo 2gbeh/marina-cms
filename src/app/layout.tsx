@@ -6,7 +6,7 @@ import APP from "@/constants/APP";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: APP.name,
+  title: { default: APP.name, template: `%s | ${APP.name}` },
   description: APP.description,
 };
 
