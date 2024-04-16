@@ -1,0 +1,31 @@
+@tailwind utilities;
+
+@layer utilities {
+  .image-cover,
+  .image-cover>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-contain,
+  .image-contain>img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .image-fill,
+  .image-fill>img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+
+  .image-scaled,
+  .image-scaled>img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+  }
+}

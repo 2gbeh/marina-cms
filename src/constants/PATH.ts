@@ -1,7 +1,8 @@
-// import P from "@/constants/PATH";
+// import PATH from "@/constants/PATH";
 export default Object.freeze({
-  splash: "/splash",
+  blank: "#",
   tent: "/tent",
+  splash: "/splash",
   //
   login: "/",
   register: "/register",
@@ -14,4 +15,8 @@ export default Object.freeze({
   settings: "/dashboard/settings",
   //
   orders: "/dashboard/orders",
+  orders_details: "/dashboard/orders/order-details",
+  products: "/dashboard/products",
+  customers: "/dashboard/customers",
+  employees: "/dashboard/employees",
 });

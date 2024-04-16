@@ -1,0 +1,36 @@
+@tailwind utilities;
+
+@layer utilities {
+  .grid-start {
+    @apply grid justify-start
+  }
+
+  .grid-center {
+    @apply grid justify-center
+  }
+
+  .grid-end {
+    @apply grid justify-end
+  }
+
+  .grid-between {
+    @apply grid justify-between
+  }
+
+  .grid-center-start {
+    @apply grid items-center justify-start
+  }
+
+  .grid-center-center {
+    @apply grid items-center justify-center
+  }
+
+  .grid-center-end {
+    @apply grid items-center justify-end
+  }
+
+  .grid-center-between {
+    @apply grid items-center justify-between
+  }
+
+}
