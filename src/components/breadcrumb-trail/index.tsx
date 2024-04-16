@@ -10,12 +10,19 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/shadcn/ui/breadcrumb";
+import { Buffer } from "@/components/loaders/buffer";
 import { useBreadcrumbTrail } from "./useBreadcrumbTrail";
 
 export const BreadcrumbTrail = () => {
-  const { pathnames, isLastIndex, stripHyphen, getCurrentPath, reload, reloading } =
-    useBreadcrumbTrail();
-    // console.log("🚀 ~ BreadcrumbTrail ~ pathnames:", pathnames)
+  const {
+    pathnames,
+    isLastIndex,
+    stripHyphen,
+    getCurrentPath,
+    reload,
+    reloading,
+  } = useBreadcrumbTrail();
+  // console.log("🚀 ~ BreadcrumbTrail ~ pathnames:", pathnames)
   return (
     <Breadcrumb className="hidden md:flex">
       <BreadcrumbList>
@@ -24,12 +31,13 @@ export const BreadcrumbTrail = () => {
             <BreadcrumbItem className="capitalize">
               {isLastIndex(i) ? (
                 <BreadcrumbPage
-                  className="cursor-pointer"
+                  className="cursor-default flex items-center gap-1.5"
                   title="Refresh (F5)"
                   onClick={reload}
                 >
+                  
                   {stripHyphen(e)}
-                  {reloading ? "..." : ""}
+                  {reloading && <Buffer fill="#555" size={18} />}
                 </BreadcrumbPage>
               ) : (
                 <BreadcrumbLink asChild>
