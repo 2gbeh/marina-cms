@@ -3,7 +3,7 @@ export default Object.freeze({
   url: "https://marina-cms.vercel.app",
   name: "Marina CMS",
   slug: "marina-cms",
-  title: "% | Marina CMS",
+  title: "%s | Marina CMS",
   summary: "Reusable Admin Dashboard",
   description: "Reusable Admin Dashboard - Next.js 14 + Shadcn/ui",
   owner: "HWP Labs",

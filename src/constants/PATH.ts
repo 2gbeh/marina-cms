@@ -15,7 +15,7 @@ export default Object.freeze({
   settings: "/dashboard/settings",
   //
   orders: "/dashboard/orders",
-  orders_details: "/dashboard/orders/order-details",
+  order_details: "/dashboard/orders/order-details",
   products: "/dashboard/products",
   customers: "/dashboard/customers",
   employees: "/dashboard/employees",

@@ -57,4 +57,17 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  input,
+  select,
+  textarea,
+  button {
+    outline: none;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+
+  i, em {
+    font-style: normal;
+  }
 }

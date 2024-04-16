@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { zzz } from "@/utils";
 
 export function useBreadcrumbTrail() {
-  const [reloading, setReloading] = React.useState(false);
+  const [reloading, setReloading] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const pathnames = pathname.split("/").filter((e) => e.length > 0);
@@ -20,7 +20,7 @@ export function useBreadcrumbTrail() {
   }
   async function reload() {
     setReloading(true);
-    await zzz(1);
+    await zzz();
     router.refresh();
     setReloading(false);
   }
