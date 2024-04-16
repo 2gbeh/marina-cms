@@ -1,0 +1,37 @@
+/* https://www.geeksforgeeks.org/how-to-change-style-of-scrollbar-using-tailwind-css/ */
+
+.my-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.my-scrollbar::-webkit-scrollbar-track {
+  background: #F1F1F1;
+}
+
+.my-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+.my-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* DARK  */
+.my-scrollbar-dark::-webkit-scrollbar {
+  width: 10px;
+}
+
+.my-scrollbar-dark::-webkit-scrollbar-track {
+  background: #888;
+  border-radius: 5px;
+}
+
+.my-scrollbar-dark::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 5px;
+}
+
+.my-scrollbar-dark::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

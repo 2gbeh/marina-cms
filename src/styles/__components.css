@@ -1,0 +1,43 @@
+@tailwind components;
+
+@layer components {
+  .mark {
+    @apply bg-brand_tint text-brand px-1
+  }
+
+  .fab {
+    background-color: var(--accent);
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 7;
+    -webkit-transition: none;
+    transition: none;
+
+    &:active {
+      width: 58px;
+      height: 58px;
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+  }
+}

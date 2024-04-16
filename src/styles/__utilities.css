@@ -1,0 +1,30 @@
+@tailwind utilities;
+
+@layer utilities {
+  .root-container {
+    @apply w-full sm:w-[480px] mx-auto border-0
+  }
+
+  .root-wrapper {
+    @apply w-full sm:w-[480px]
+  }
+
+  .root-wrapper-center {
+    @apply w-full sm:w-[480px] mx-auto
+  }
+
+  .bg-gradient {
+    @apply bg-gradient-to-r from-brand to-brand_dark
+  }
+
+  .bg-gradient-alt {
+    @apply bg-gradient-to-r from-fuchsia-600 to-brand
+  }
+
+  .backdrop {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
+    background-size: cover;
+  }
+}
