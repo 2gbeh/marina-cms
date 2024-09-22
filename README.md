@@ -8,16 +8,12 @@ Reusable Admin Dashboard - Remix + Shadcn/ui
 
 [![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://marina-cms.vercel.app)
 
-## Installation
+## Setup
 
 ```bash
 $ git clone https://github.com/2gbeh/marina-cms.git
 
 $ cd marina-cms
-
-# $ nvm use 20.17.0
-
-# $ npm cache clean --force
 
 $ npm install
 
@@ -28,7 +24,19 @@ $ npm run dev
 
 > Local: http://localhost:5173
 
-## Deployment
+## Debug
+
+```
+$ nvm use 20.17.0
+
+$ npm cache clean --force
+
+$ rm -rf node_modules package-lock.json
+
+$ npm install
+```
+
+## Deploy
 
 ```bash
 npm run build

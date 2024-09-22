@@ -1,6 +1,7 @@
 import {
   type MetaFunction,
-  type ActionFunctionArgs,
+  type LoaderFunction,
+  type ActionFunction,
   json,
   redirect,
 } from "@remix-run/node";
@@ -26,21 +27,28 @@ import { PromiseHelper } from "~/utils/helpers/common/promise.helper";
 
 export const meta: MetaFunction = () => [{ title: "Dashboard" }];
 
-export const loader = async () => {
-  await PromiseHelper.mockApiCall();
-  // throw json("DashboardServiceError: I'm a teapot!", {
-  //   status: 418,
-  //   statusText: "I'm a teapot!",
-  // });
-  //
-  return json({
-    summary: fakeDashboardLoader[0],
-    transactions: fakeDashboardLoader[1],
-  });
-  // await DashboardService.fetchData();
+export const loader: LoaderFunction = async ({ params }) => {
+  try {
+    await PromiseHelper.mockApiCall();
+    // throw json("DashboardServiceError: I'm a teapot!", {
+    //   status: 418,
+    //   statusText: "I'm a teapot!",
+    // });
+    return json({
+      summary: fakeDashboardLoader[0],
+      transactions: fakeDashboardLoader[1],
+    });
+    // await DashboardService.fetchData();
+  } catch (error) {
+    console.error(error);
+    return json("DashboardServiceError: I'm a teapot!", {
+      status: 418,
+      statusText: "I'm a teapot!",
+    });
+  }
 };
 
-export const action = async ({ request }: ActionFunctionArgs) => {
+export const action: ActionFunction = async ({ request }) => {
   const form = await request.formData();
   const entries = Object.fromEntries(form);
   console.log("🚀 ~ action ~ entries:", entries);
