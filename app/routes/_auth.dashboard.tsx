@@ -1,7 +1,11 @@
-import { type MetaFunction } from "@remix-run/node";
+import {
+  type MetaFunction,
+  type ActionFunctionArgs,
+  json,
+  redirect,
+} from "@remix-run/node";
 import {
   isRouteErrorResponse,
-  json,
   useLoaderData,
   useActionData,
   useNavigation,
@@ -9,6 +13,7 @@ import {
 } from "@remix-run/react";
 import Heading from "~/components/Heading";
 import Tent from "~/components/Tent";
+import { PATH } from "~/constants/PATH";
 import { fakeDashboardLoader } from "~/data/fake-dashboard-loader";
 // ///////////////////////////////////////////////
 import {
@@ -35,9 +40,19 @@ export const loader = async () => {
   // await DashboardService.fetchData();
 };
 
+export const action = async ({ request }: ActionFunctionArgs) => {
+  const form = await request.formData();
+  const entries = Object.fromEntries(form);
+  console.log("🚀 ~ action ~ entries:", entries);
+  // return redirect(PATH.dashboard);
+};
+
 export default function DashboardRoute() {
-  console.log("🚀 ~ DashboardRoute");
   const loaderData = useLoaderData<IDashboardLoader>();
+  const navigation = useNavigation();
+  const isLoading = navigation.state === "loading";
+  const isSubmitting = navigation.state === "submitting";
+  console.log("🚀 ~ DashboardRoute");
   // renders
   return (
     <>

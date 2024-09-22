@@ -1,32 +1,40 @@
-# Welcome to Remix!
+# Marina CMS
 
-- 📖 [Remix docs](https://remix.run/docs)
+Reusable Admin Dashboard - Remix + Shadcn/ui
 
-## Development
+[![Next.js](https://img.shields.io/badge/Remix-2.x-121212.svg)](https://remix.run/docs/en/main/start/tutorial)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/docs/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16.x-316192.svg)](https://www.postgresql.org/docs/16/index.html)
 
-Run the dev server:
+[![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://marina-cms.vercel.app)
 
-```shellscript
-npm run dev
+## Installation
+
+```bash
+$ git clone https://github.com/2gbeh/marina-cms.git
+
+$ cd marina-cms
+
+# $ nvm use 20.17.0
+
+# $ npm cache clean --force
+
+$ npm install
+
+$ npm run dev
 ```
+
+## Usage
+
+> Local: http://localhost:5173
 
 ## Deployment
 
-First, build your app for production:
-
-```sh
+```bash
 npm run build
-```
 
-Then run the app in production mode:
-
-```sh
 npm start
 ```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
 
 If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
 
@@ -35,6 +43,6 @@ Make sure to deploy the output of `npm run build`
 - `build/server`
 - `build/client`
 
-## Styling
+## Screenshot
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+![Screenshot](./public/social-preview.png)
