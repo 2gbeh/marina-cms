@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "@remix-run/react";
+import { NavLink, useNavigate } from "@remix-run/react";
 import { UserIcon, LogOutIcon, SettingsIcon } from "lucide-react";
 import { Button } from "~/components/_shadcn/ui/button";
 import {
@@ -13,8 +13,10 @@ import {
 // ///////////////////////////////////////////////
 import { PATH } from "~/constants/PATH";
 
-const HeaderAvatarMenu: React.FC = () => {
-  console.log("🚀 ~ HeaderAvatarMenu");
+const AvatarBurgerMenu: React.FC = () => {
+  const navigate = useNavigate();
+  console.log("🚀 ~ AvatarBurgerMenu");
+  // renders
   return (
     <DropdownMenu>
       <DropdownMenuLabel className="-mr-3 hidden sm:flex">
@@ -41,7 +43,10 @@ const HeaderAvatarMenu: React.FC = () => {
           </NavLink>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="flex-center gap-2 text-red-500">
+        <DropdownMenuItem
+          className="flex-center gap-2 text-red-500"
+          onClick={() => confirm("Are youu sure?") && navigate(PATH.login)}
+        >
           <LogOutIcon className="dim-4" />
           Logout
         </DropdownMenuItem>
@@ -50,4 +55,4 @@ const HeaderAvatarMenu: React.FC = () => {
   );
 };
 
-export default React.memo(HeaderAvatarMenu);
+export default React.memo(AvatarBurgerMenu);

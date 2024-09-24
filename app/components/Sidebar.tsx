@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "@remix-run/react";
 import TheLogo from "./TheLogo";
+import Navigation from "./Navigation";
 import UpgradeCard from "./cards/UpgradeCard";
-import SidebarMenu from "./SidebarMenu";
 // ///////////////////////////////////////////////
 import { APP } from "~/constants/APP";
 import { PATH } from "~/constants/PATH";
@@ -24,7 +24,9 @@ const Sidebar: React.FC = () => {
 
       {/* MENU */}
       <section className="flex-1">
-        <SidebarMenu />
+        <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+          <Navigation variant="sidebar" />
+        </nav>
       </section>
 
       {/* UPGRADE */}

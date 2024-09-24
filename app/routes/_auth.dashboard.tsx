@@ -2,64 +2,32 @@ import {
   type MetaFunction,
   type LoaderFunction,
   type ActionFunction,
-  json,
-  redirect,
 } from "@remix-run/node";
-import {
-  isRouteErrorResponse,
-  useLoaderData,
-  useActionData,
-  useNavigation,
-  useRouteError,
-} from "@remix-run/react";
+import { useNavigation, useLoaderData, useActionData } from "@remix-run/react";
 import Heading from "~/components/Heading";
-import Tent from "~/components/Tent";
-import { PATH } from "~/constants/PATH";
-import { fakeDashboardLoader } from "~/data/fake-dashboard-loader";
 // ///////////////////////////////////////////////
 import {
-  IDashboardLoader,
-  DashboardService,
-  DashboardCards,
-  DashboardTable,
+  // DashboardService,
+  DashboardCards_,
+  DashboardTable_,
+  // useDashboard,
 } from "~/features/dashboard";
-import { PromiseHelper } from "~/utils/helpers/common/promise.helper";
+import { DashboardService } from "~/.server/dashboard.service";
+import DashboardCards from "~/features/dashboard/widgets/DashboardCards";
+import DashboardTable from "~/features/dashboard/widgets/DashboardTable";
 
-export const meta: MetaFunction = () => [{ title: "Dashboard" }];
+export const meta: MetaFunction<typeof loader> = ({ data }) => [
+  { title: data?.title },
+];
 
-export const loader: LoaderFunction = async ({ params }) => {
-  try {
-    await PromiseHelper.mockApiCall();
-    // throw json("DashboardServiceError: I'm a teapot!", {
-    //   status: 418,
-    //   statusText: "I'm a teapot!",
-    // });
-    return json({
-      summary: fakeDashboardLoader[0],
-      transactions: fakeDashboardLoader[1],
-    });
-    // await DashboardService.fetchData();
-  } catch (error) {
-    console.error(error);
-    return json("DashboardServiceError: I'm a teapot!", {
-      status: 418,
-      statusText: "I'm a teapot!",
-    });
-  }
-};
+export const loader: LoaderFunction = async ({ params }) =>
+  await DashboardService.fetchData(params);
 
-export const action: ActionFunction = async ({ request }) => {
-  const form = await request.formData();
-  const entries = Object.fromEntries(form);
-  console.log("🚀 ~ action ~ entries:", entries);
-  // return redirect(PATH.dashboard);
-};
+// export const action: ActionFunction = async ({ context, params, request }) =>
+//   await DashboardService.handleAction(params, request);
 
 export default function DashboardRoute() {
-  const loaderData = useLoaderData<IDashboardLoader>();
-  const navigation = useNavigation();
-  const isLoading = navigation.state === "loading";
-  const isSubmitting = navigation.state === "submitting";
+  const loaderData = useLoaderData<typeof loader>();
   console.log("🚀 ~ DashboardRoute");
   // renders
   return (
@@ -70,12 +38,12 @@ export default function DashboardRoute() {
       <div className="flex flex-1 flex-col gap-8 md:p-5">
         {/* CARDS */}
         <section className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-          <DashboardCards data={loaderData.summary} />
+          <DashboardCards_ data={loaderData.body.summary} />
         </section>
 
         {/* TABLE */}
         <section className="grid gap-4 md:gap-8">
-          <DashboardTable data={loaderData.transactions} />
+          <DashboardTable_ data={loaderData.body.transactions} />
         </section>
       </div>
     </>

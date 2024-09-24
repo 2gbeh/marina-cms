@@ -2,7 +2,7 @@ import { NumberHelper as N } from "~/utils/helpers/common/number.helper";
 import { CurrencyHelper } from "~/utils/helpers/common/currency.helper";
 
 import { fakeDashboardLoader } from "~/data/fake-dashboard-loader";
-import { TDashboardLoader_Transaction } from "../core/dashboard.interface";
+import { TDashboardLoader_Transaction } from "./dashboard.interface";
 
 type TData = { value: number; rate: number };
 

@@ -1,21 +1,23 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Link } from "@remix-run/react";
+import { Link, useNavigate } from "@remix-run/react";
 import { Label } from "~/components/_shadcn/ui/label";
 import { Input } from "~/components/_shadcn/ui/input";
 import { Button } from "~/components/_shadcn/ui/button";
 // ///////////////////////////////////////////////
 import { APP } from "~/constants/APP";
 import { PATH } from "~/constants/PATH";
-import { AuthHeading } from "~/features/auth";
+import { GuestHeading } from "~/features/guest";
 
 export const meta: MetaFunction = () => [{ title: "Log in" }];
 
 export default function LoginRoute() {
+  const navigate = useNavigate();
   console.log("🚀 ~ LoginRoute");
+  // renders
   return (
     <>
       {/* HEADING */}
-      <AuthHeading
+      <GuestHeading
         title={APP.name}
         subtitle="Enter your login details to access your account"
       />
@@ -50,7 +52,11 @@ export default function LoginRoute() {
         </div>
 
         {/* ACTION */}
-        <Button type="submit" className="w-full">
+        <Button
+          type="button"
+          onClick={() => navigate(PATH.dashboard)}
+          className="w-full"
+        >
           Log in
         </Button>
       </main>

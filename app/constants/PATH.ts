@@ -23,4 +23,5 @@ export const PATH = {
   transactions: "/transactions",
   transaction: "/transactions/[id]",
   analytics: "/analytics",
+  activities: "/activities",
 };

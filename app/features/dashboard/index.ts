@@ -1,10 +1,12 @@
 export type {
-  IDashboardLoader,
   TDashboardLoader_Summary,
   TDashboardLoader_Transaction,
+  IDashboardLoader,
+  IDashboardAction,
 } from "./core/dashboard.interface";
-export { DashboardService } from "./core/dashboard.service";
 export { DashboardPipe } from "./core/dashboard.pipe";
+export { useDashboard } from "./core/useDashboard";
 //
-export { default as DashboardCards } from "./widgets/DashboardCards";
-export { default as DashboardTable } from "./widgets/DashboardTable";
+export { default as DashboardCards_ } from "./widgets/DashboardCards";
+export { default as DashboardTable_ } from "./widgets/DashboardTable";
+export { default as DashboardAddNew } from "./widgets/DashboardAddNew";

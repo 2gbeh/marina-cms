@@ -3,7 +3,7 @@ import { Label } from "~/components/_shadcn/ui/label";
 import { Input } from "~/components/_shadcn/ui/input";
 import { Button } from "~/components/_shadcn/ui/button";
 // ///////////////////////////////////////////////
-import { AuthHeading, AuthNavigation } from "~/features/auth";
+import { GuestHeading, GuestNavigation } from "~/features/guest";
 import { useState } from "react";
 
 export const meta: MetaFunction = () => [{ title: "Forgot Password" }];
@@ -15,7 +15,7 @@ export default function ForgotPasswordRoute() {
   return (
     <>
       {/* HEADING */}
-      <AuthHeading
+      <GuestHeading
         title="Forgot Password"
         subtitle="Enter your email to receive your password reset link"
       />
@@ -43,7 +43,7 @@ export default function ForgotPasswordRoute() {
       </main>
 
       {/* NAV */}
-      <AuthNavigation />
+      <GuestNavigation />
     </>
   );
 }

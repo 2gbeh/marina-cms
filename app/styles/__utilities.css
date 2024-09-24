@@ -1,11 +1,27 @@
 @tailwind utilities;
 
 @layer utilities {
-  .sidebar-menu-active {
-    @apply flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary
+  .sidebar {
+    @apply flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary
   }
 
-  .sidebar-menu {
-    @apply flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary
+  .sidebar-active {
+    @apply sidebar bg-muted text-primary
+  }
+
+  .sidebar-inactive {
+    @apply sidebar text-muted-foreground
+  }
+
+  .drawer {
+    @apply mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground
+  }
+
+  .drawer-active {
+    @apply drawer bg-muted text-foreground
+  }
+
+  .drawer-inactive {
+    @apply drawer text-muted-foreground
   }
 }

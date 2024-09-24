@@ -8,10 +8,11 @@ import {
 } from "~/components/_shadcn/ui/sheet";
 import { Button } from "~/components/_shadcn/ui/button";
 import TheLogo from "./TheLogo";
-import DrawerMenu from "./DrawerMenu";
+import Navigation from "./Navigation";
 import UpgradeCard from "./cards/UpgradeCard";
 // ///////////////////////////////////////////////
 import { APP } from "~/constants/APP";
+import { PATH } from "~/constants/PATH";
 
 const Drawer: React.FC = () => {
   console.log("🚀 ~ Drawer");
@@ -24,18 +25,22 @@ const Drawer: React.FC = () => {
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="flex flex-col">
-        <nav className="grid gap-2 text-lg font-medium">
-          <Link
-            to="#"
-            className="flex items-center gap-2 text-lg font-semibold"
-          >
-            <TheLogo />
-            <span className="sr-only">{APP.short_name}</span>
-          </Link>
+        <div className="grid gap-5 text-lg font-medium">
+          <div>
+            <Link
+              to={PATH.dashboard}
+              className="font-semibol bg-red-100_ text-lg"
+            >
+              <TheLogo />
+              <span className="sr-only">{APP.short_name}</span>
+            </Link>
+          </div>
 
           {/* MENU */}
-          <DrawerMenu />
-        </nav>
+          <nav className="flex flex-col gap-2">
+            <Navigation variant="drawer" />
+          </nav>
+        </div>
 
         {/* UPGRADE */}
         <section className="mt-auto">

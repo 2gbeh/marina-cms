@@ -3,7 +3,7 @@ import { Label } from "~/components/_shadcn/ui/label";
 import { Input } from "~/components/_shadcn/ui/input";
 import { Button } from "~/components/_shadcn/ui/button";
 // ///////////////////////////////////////////////
-import { AuthHeading, AuthNavigation } from "~/features/auth";
+import { GuestHeading, GuestNavigation } from "~/features/guest";
 
 export const meta: MetaFunction = () => [{ title: "Reset Password" }];
 
@@ -12,7 +12,7 @@ export default function ResetPasswordRoute() {
   return (
     <>
       {/* HEADING */}
-      <AuthHeading
+      <GuestHeading
         title="Reset Password"
         subtitle="Create a new secure password to access your account"
       />
@@ -45,7 +45,7 @@ export default function ResetPasswordRoute() {
       </main>
 
       {/* NAV */}
-      <AuthNavigation />
+      <GuestNavigation />
     </>
   );
 }

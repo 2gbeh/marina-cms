@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "@remix-run/react";
 import { PATH } from "~/constants/PATH";
 
-const AuthNavigation: React.FC = () => {
-  console.log("🚀 ~ AuthNavigation");
+const GuestNavigation: React.FC = () => {
+  console.log("🚀 ~ GuestNavigation");
   return (
     <nav className="mt-4 text-center text-sm">
       Already have an account?{" "}
@@ -14,4 +14,4 @@ const AuthNavigation: React.FC = () => {
   );
 };
 
-export default React.memo(AuthNavigation);
+export default React.memo(GuestNavigation);

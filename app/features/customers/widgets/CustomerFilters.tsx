@@ -18,8 +18,8 @@ interface IProps {
   data?: unknown;
 }
 
-const CustomerFilters: React.FC<IProps> = ({ data }) => {
-  console.log("🚀 ~ CustomerFilters");
+const DashboardTabContent: React.FC<IProps> = ({ data }) => {
+  console.log("🚀 ~ DashboardTabContent");
   // renders
   return (
     <>
@@ -56,4 +56,4 @@ const CustomerFilters: React.FC<IProps> = ({ data }) => {
   );
 };
 
-export default React.memo(CustomerFilters);
+export default React.memo(DashboardTabContent);

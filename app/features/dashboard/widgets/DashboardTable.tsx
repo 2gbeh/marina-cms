@@ -24,6 +24,7 @@ import Figure from "~/components/Figure";
 import { PATH } from "~/constants/PATH";
 import { TransactionPipe } from "~/features/transactions";
 import { TDashboardLoader_Transaction } from "../core/dashboard.interface";
+import DashboardAddNew from "./DashboardAddNew";
 
 interface IProps {
   data: Array<TDashboardLoader_Transaction>;
@@ -38,12 +39,13 @@ const DashboardTable: React.FC<IProps> = ({ data }) => {
           <CardTitle>Recent Transactions</CardTitle>
           <CardDescription>Showing most recent transactions</CardDescription>
         </div>
-        <Button asChild size="sm" className="ml-auto gap-1">
+        {/* <Button asChild size="sm" className="ml-auto gap-1">
           <Link to={PATH.customers}>
             View All
-            <ArrowUpRightIcon className="h-4 w-4" />
+            <ArrowUpRightIcon className="dim-4" />
           </Link>
-        </Button>
+        </Button> */}
+        <DashboardAddNew count={data.length} />
       </CardHeader>
       <CardContent>
         <Table>
@@ -54,7 +56,7 @@ const DashboardTable: React.FC<IProps> = ({ data }) => {
               <TableHead>Amount</TableHead>
               <TableHead>Wallet Balance</TableHead>
               <TableHead>Collector</TableHead>
-              <TableHead>Date | Time</TableHead>
+              <TableHead>Date & Time</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>

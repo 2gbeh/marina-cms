@@ -1,15 +1,22 @@
-import type { MetaFunction } from "@remix-run/node";
-import Heading from "~/components/Heading";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
 } from "~/components/_shadcn/ui/tabs";
+import Heading from "~/components/Heading";
 // ///////////////////////////////////////////////
 import { CustomerFilters, CustomerTabContent } from "~/features/customers";
+import { DashboardService } from "~/.server/dashboard.service";
+// import { DashboardService } from "~/features/dashboard";
 
-export const meta: MetaFunction = () => [{ title: "Customers" }];
+export const meta: MetaFunction<typeof loader> = ({ data }) => [
+  { title: data?.title },
+];
+
+export const loader: LoaderFunction = async ({ params }) =>
+  await DashboardService.fetchData(params);
 
 export default function CustomersRoute() {
   console.log("🚀 ~ CustomersRoute");
@@ -33,13 +40,13 @@ export default function CustomersRoute() {
 
             {/* FILTERS */}
             <div className="ml-auto flex items-center gap-2">
-              <CustomerFilters />
+              <CustomerFilters data={true} />
             </div>
           </div>
 
           {/* TAB CONTENT */}
           <TabsContent value="all">
-            <CustomerTabContent />
+            <CustomerTabContent data={true} />
           </TabsContent>
         </Tabs>
       </section>

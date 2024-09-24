@@ -28,6 +28,11 @@ export type TDashboardLoader_Transaction = {
 };
 
 export interface IDashboardLoader {
-  summary: TDashboardLoader_Summary;
-  transactions: Array<TDashboardLoader_Transaction>;
+  title: string;
+  body: {
+    summary: TDashboardLoader_Summary;
+    transactions: Array<TDashboardLoader_Transaction>;
+  };
 }
+
+export interface IDashboardAction {}

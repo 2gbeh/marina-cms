@@ -9,10 +9,14 @@ import {
   Scripts,
   ScrollRestoration,
   isRouteErrorResponse,
+  useNavigate,
   useRouteError,
 } from "@remix-run/react";
-import Tent from "~/components/Tent";
+import { Button } from "./components/_shadcn/ui/button";
+import Tent from "./components/Tent";
+
 import { APP } from "./constants/APP";
+import { IError } from "./utils/types/remix.type";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -31,8 +35,8 @@ export const links: LinksFunction = () => [
 export const meta: MetaFunction = ({ error }) => {
   let title = APP.name;
   if (error) {
-    let err = error as { status: string; statusText: string };
-    title = `${err.status || "Error"} | ${err.statusText || title}`;
+    let err = error as IError;
+    title = `${err.statusText || "Application Error"} | ${title}`;
   }
   return [{ title }];
 };
@@ -60,15 +64,29 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export function ErrorBoundary() {
+  const navigate = useNavigate();
   const error = useRouteError();
-
-  return isRouteErrorResponse(error) ? (
-    <Tent status={error.status} statusText={error.statusText}>
-      {error.data}
-    </Tent>
-  ) : (
-    <Tent status={500} statusText="Internal Server Error">
-      {(error as { message: string })?.message ?? "Something went wrong"}
+  let err = error as IError;
+  let isServerError = !isRouteErrorResponse(error);
+  // renders
+  return (
+    <Tent
+      status={err.status || 500}
+      statusText={err.statusText || "Internal Server Error"}
+    >
+      <div className="flex-col-center gap-4">
+        <p>
+          {isServerError ? err.message || "Something went wrong" : err.data}
+        </p>
+        <Button
+          type="button"
+          onClick={() =>
+            isServerError ? window.location.reload() : navigate(-1)
+          }
+        >
+          {isServerError ? "Retry" : "Go back"}
+        </Button>
+      </div>
     </Tent>
   );
 }

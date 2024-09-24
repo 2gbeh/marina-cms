@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from "react";
 import TheLogo from "./TheLogo";
 
 interface IProps extends PropsWithChildren {
-  status: number;
+  status: number | string;
   statusText: string;
 }
 
@@ -19,7 +19,7 @@ const Tent: React.FC<IProps> = ({ children, status, statusText }) => {
       </figure>
 
       {/* CHILDREN */}
-      <p className="">{children}</p>
+      {children}
     </main>
   );
 };
