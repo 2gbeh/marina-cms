@@ -26,7 +26,7 @@ $ npm run dev
 
 ## Debug
 
-```
+```bash
 $ nvm use 20.17.0
 
 $ npm cache clean --force
@@ -39,9 +39,9 @@ $ npm install
 ## Deploy
 
 ```bash
-npm run build
+$ npm run build
 
-npm start
+$ npm start
 ```
 
 If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
@@ -55,7 +55,9 @@ Make sure to deploy the output of `npm run build`
 
 ![Screenshot](./public/social-preview.png)
 
-## [Remix Flat Routes](https://github.com/kiliman/remix-flat-routes)
+## Resources
+
+#### [Remix Flat Routes](https://github.com/kiliman/remix-flat-routes)
 
 > ./app/routes-hybrid-files/
 
@@ -80,4 +82,12 @@ Make sure to deploy the output of `npm run build`
     ├── $userId_.edit.tsx
     ├── _layout.tsx
     └── index.tsx
+```
+
+#### [JSON Server](https://www.freecodecamp.org/news/json-server-for-frontend-development/)
+
+```bash
+$ npm install -g json-server
+
+$ json-server --watch ./app/data/posts.json --port=8000
 ```
