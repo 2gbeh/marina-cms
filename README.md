@@ -54,3 +54,30 @@ Make sure to deploy the output of `npm run build`
 ## Screenshot
 
 ![Screenshot](./public/social-preview.png)
+
+## [Remix Flat Routes](https://github.com/kiliman/remix-flat-routes)
+
+> ./app/routes-hybrid-files/
+
+```
+├── _auth+
+│   ├── forgot-password.tsx
+│   └── login.tsx
+├── _public+
+│   ├── _layout.tsx
+│   ├── about.tsx
+│   ├── contact[.jpg].tsx
+│   └── index.tsx
+├── project+
+│   ├── _layout.tsx
+│   ├── parent.child
+│   │   └── index.tsx
+│   └── parent.child.grandchild
+│       ├── index.tsx
+│       └── styles.css
+└── users+
+    ├── $userId.tsx
+    ├── $userId_.edit.tsx
+    ├── _layout.tsx
+    └── index.tsx
+```
