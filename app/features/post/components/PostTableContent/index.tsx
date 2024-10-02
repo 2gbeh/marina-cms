@@ -1,6 +1,5 @@
 import React from "react";
 import { MoreHorizontal } from "lucide-react";
-import { faker } from "@faker-js/faker";
 import { Badge } from "~/components/_shadcn/ui/badge";
 import { Button } from "~/components/_shadcn/ui/button";
 import {
@@ -28,10 +27,15 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/_shadcn/ui/card";
+// ///////////////////////////////////////////////
+import { IPostLoader } from "../../utils/post.interface";
+import { PostPipe } from "../../utils/post.pipe";
+import { usePostTableContent } from "./usePostTableContent";
 
-import { TPosts } from "../core/post.interface";
+interface IProps extends IPostLoader {}
 
-const PostTableContent = ({ posts }: { posts: TPosts }) => {
+const PostTableContent: React.FC<IProps> = ({ posts, users }) => {
+  const { handleDelete, toBeDeleted, isDeleting } = usePostTableContent();
   console.log("🚀 ~ PostTableContent");
   return (
     <>
@@ -51,24 +55,28 @@ const PostTableContent = ({ posts }: { posts: TPosts }) => {
               </TableHead>
               <TableHead className="">Title</TableHead>
               <TableHead className="hidden sm:table-cell">Body</TableHead>
-              <TableHead className="hidden sm:table-cell">Posted by</TableHead>
+              <TableHead className="hidden sm:table-cell">Author</TableHead>
               <TableHead>
                 <span className="sr-only">Actions</span>
               </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {posts.map(({ id, thumbnail, title, body, userId }, i) => {
+            {posts.map((post, i) => {
+              const pipe = PostPipe.transform({ post, users });
+              // render
               return (
-                <TableRow key={id}>
+                <TableRow
+                  key={post.id}
+                  className={
+                    isDeleting && post.id == toBeDeleted ? "bg-red-50" : ""
+                  }
+                >
                   <TableCell className="">{i + 1}</TableCell>
                   <TableCell className="hidden sm:table-cell">
                     <figure className="">
                       <img
-                        src={
-                          thumbnail ||
-                          faker.image.urlPicsumPhotos({ width: 64 })
-                        }
+                        src={pipe.thumbnail}
                         alt="Thumbnail"
                         height="64"
                         width="64"
@@ -76,11 +84,13 @@ const PostTableContent = ({ posts }: { posts: TPosts }) => {
                       />
                     </figure>
                   </TableCell>
-                  <TableCell className="font-medium">{title}</TableCell>
-                  <TableCell className="hidden sm:table-cell">{body}</TableCell>
+                  <TableCell className="font-medium">{pipe.title}</TableCell>
+                  <TableCell className="hidden sm:table-cell">
+                    {pipe.body}
+                  </TableCell>
                   <TableCell className="hidden sm:table-cell">
                     <Badge variant="outline" className="text-nowrap">
-                      Auhtor-{userId}
+                      {pipe.user.username}
                     </Badge>
                   </TableCell>
                   <TableCell>
@@ -98,7 +108,11 @@ const PostTableContent = ({ posts }: { posts: TPosts }) => {
                       <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuItem>Edit</DropdownMenuItem>
-                        <DropdownMenuItem>Delete</DropdownMenuItem>
+                        <DropdownMenuItem
+                          onClick={() => handleDelete(post.id)}
+                        >
+                          Delete
+                        </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </TableCell>

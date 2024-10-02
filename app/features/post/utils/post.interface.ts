@@ -33,3 +33,8 @@ export type TUser = {
 };
 
 export type TUsers = Array<TUser>;
+
+export interface IPostLoader {
+  posts: TPosts;
+  users: TUsers;
+}

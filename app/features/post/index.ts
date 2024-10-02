@@ -1,12 +1,12 @@
-export type { TPost, TPosts, TUser, TUsers } from "./core/post.interface";
-export { usePosts } from "./core/usePosts";
+export type { TPost, TPosts, TUser, TUsers } from "./utils/post.interface";
+export { PostPipe } from "./utils/post.pipe";
 //
-export { default as Sidebar } from "./widgets/Sidebar";
-export { default as Drawer } from "./widgets/Drawer";
-export { default as NavigationTrail } from "./widgets/NavigationTrail";
-export { default as SearchBar } from "./widgets/SearchBar";
-export { default as HeaderAvatarMenu } from "./widgets/HeaderAvatarMenu";
+export { useUsersRoute } from "./hooks/useUsersRoute";
 //
-export { default as PostTableFilters } from "./widgets/PostTableFilters";
-export { default as PostTableContent } from "./widgets/PostTableContent";
-export { default as AddPostModalForm } from "./widgets/AddPostModalForm";
+export { default as Sidebar } from "./components/Sidebar";
+export { default as Drawer } from "./components/Drawer";
+export { default as NavigationTrail } from "./components/NavigationTrail";
+export { default as SearchBar } from "./components/SearchBar";
+export { default as HeaderAvatarMenu } from "./components/HeaderAvatarMenu";
+export { default as PostTableContent } from "./components/PostTableContent";
+export { default as AddPostModalForm } from "./components/AddPostModalForm";
