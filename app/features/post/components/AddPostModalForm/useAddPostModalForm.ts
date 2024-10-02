@@ -1,34 +1,45 @@
+import { useEffect, useMemo, useState } from "react";
 import { useFetcher } from "@remix-run/react";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { M } from "~/constants/MOCK";
+import { ROUTE } from "~/constants/ROUTE";
+
 import { TPost } from "../../utils/post.interface";
+import { POST } from "../../utils/post.constant";
+import { usePostContext } from "../../hooks/usePostContext";
 
-export function useAddPostModalForm(
-  post: null | TPost,
-  onClose: Dispatch<SetStateAction<boolean>>,
-) {
+export function useAddPostModalForm() {
   const fetcher = useFetcher();
-  const isSubmitting = fetcher.state === "submitting";
-
-  const initialValues = M.posts.formData
-    ? {
-        author: "3",
-        title: "Test title 1",
-        content: "Test content 1",
-      }
-    : {
-        author: "",
-        title: "",
-        content: "",
-      };
+  const postContext = usePostContext();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [canEdit, setCanEdit] = useState(false);
+  const [initialValues, setInitialValues] = useState(POST.initialValues);
 
   useEffect(() => {
-    // if (post?.id && fetcher.state === "idle") {
-      // onClose(false);
-      console.log("🚀 ~ useEffect ~ post:", fetcher.state, post);
-    // }
+    (async () => {
+      if (postContext.selectedPostId.length > 0) {
+        setIsSubmitting(true);
+        const raw = await fetch(`${ROUTE.posts}/${postContext.selectedPostId}`);
+        const res: TPost = await raw.json();
+        setIsSubmitting(false);
+        if (res.id) {
+          setCanEdit(true);
+          setInitialValues({
+            author: String(res?.userId) || "",
+            title: res?.title || "",
+            content: res?.body || "",
+          });
+        } else {
+          postContext.closeModal();
+        }
+      } else {
+        setInitialValues(POST.initialValues);
+      }
+    })();
+  }, [postContext.showModal]);
+
+  useEffect(() => {
+    setIsSubmitting(fetcher.state !== "idle");
   }, [fetcher.state]);
 
   //
-  return { fetcher, isSubmitting, initialValues };
+  return { postContext, fetcher, isSubmitting, initialValues, canEdit };
 }

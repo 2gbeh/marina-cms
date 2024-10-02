@@ -18,7 +18,7 @@ export class PostService {
         Promise.all(responses.map((response) => response.json())),
       );
       // console.log("🚀 ~ PostService ~ fetchData ~ res:", posts, users);
-      return json({ posts, users });
+      return json({ posts: posts ?? [], users: users ?? [] });
     } catch (err) {
       console.log("🚀 ~ PostService ~ handleLoader ~ err:", err);
       return json(err, { status: 404 });
@@ -32,9 +32,9 @@ export class PostService {
       case "create":
         action = this.addPost(formData);
         break;
-      // case "edit-post":
-      //   action = this.editPost(formData);
-      //   break;
+      case "update":
+        action = this.editPost(formData);
+        break;
       case "delete":
         action = this.removePost(formData);
         break;
@@ -72,8 +72,8 @@ export class PostService {
     },
   });
 
-  static editPost = (id: string | number, formData: FormData) => ({
-    url: `${ROUTE.posts}/${id}`,
+  static editPost = (formData: FormData) => ({
+    url: `${ROUTE.posts}/${formData.get("id")}`,
     method: EMethod.PATCH,
     body: {
       title: formData.get("title"),

@@ -28,14 +28,12 @@ import {
   CardTitle,
 } from "~/components/_shadcn/ui/card";
 // ///////////////////////////////////////////////
-import { IPostLoader } from "../../utils/post.interface";
 import { PostPipe } from "../../utils/post.pipe";
 import { usePostTableContent } from "./usePostTableContent";
 
-interface IProps extends IPostLoader {}
-
-const PostTableContent: React.FC<IProps> = ({ posts, users }) => {
-  const { handleDelete, toBeDeleted, isDeleting } = usePostTableContent();
+const PostTableContent = () => {
+  const { postContext, handleEdit, handleDelete, toBeDeleted, isDeleting } =
+    usePostTableContent();
   console.log("🚀 ~ PostTableContent");
   return (
     <>
@@ -62,8 +60,11 @@ const PostTableContent: React.FC<IProps> = ({ posts, users }) => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {posts.map((post, i) => {
-              const pipe = PostPipe.transform({ post, users });
+            {postContext.posts.map((post, i) => {
+              const pipe = PostPipe.transform({
+                post,
+                users: postContext.users,
+              });
               // render
               return (
                 <TableRow
@@ -107,10 +108,10 @@ const PostTableContent: React.FC<IProps> = ({ posts, users }) => {
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem>Edit</DropdownMenuItem>
-                        <DropdownMenuItem
-                          onClick={() => handleDelete(post.id)}
-                        >
+                        <DropdownMenuItem onClick={() => handleEdit(post.id)}>
+                          Edit
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleDelete(post.id)}>
                           Delete
                         </DropdownMenuItem>
                       </DropdownMenuContent>

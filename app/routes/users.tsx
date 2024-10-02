@@ -6,6 +6,7 @@ import {
   SearchBar,
   Sidebar,
 } from "~/features/post";
+import PostContextProvider from "~/features/post/components/PostContextProvider";
 
 export default function UsersLayout() {
   console.log("🚀 ~ UsersLayout");
@@ -28,7 +29,9 @@ export default function UsersLayout() {
           <HeaderAvatarMenu />
         </header>
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
-          <Outlet />
+          <PostContextProvider>
+            <Outlet />
+          </PostContextProvider>
         </main>
       </div>
     </div>

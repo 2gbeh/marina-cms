@@ -20,31 +20,18 @@ import {
   SelectValue,
 } from "~/components/_shadcn/ui/select";
 // ///////////////////////////////////////////////
-import { TPost, TUsers } from "../../utils/post.interface";
 import { useAddPostModalForm } from "./useAddPostModalForm";
 
-interface IProps {
-  open: boolean;
-  onClose: Dispatch<SetStateAction<boolean>>;
-  data: { users: TUsers; post: null | TPost };
-}
-
-const AddPostModalForm: React.FC<IProps> = ({
-  open,
-  onClose,
-  data: { users, post },
-}) => {
-  const { fetcher, isSubmitting, initialValues } = useAddPostModalForm(
-    post,
-    onClose,
-  );
+const AddPostModalForm = () => {
+  const { postContext, fetcher, isSubmitting, initialValues, canEdit } =
+    useAddPostModalForm();
   console.log("🚀 ~ AddPostModalForm");
   // renders
   return (
-    <Dialog open={open} onOpenChange={onClose}>
+    <Dialog open={postContext.showModal} onOpenChange={postContext.closeModal}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Add post</DialogTitle>
+          <DialogTitle>{canEdit ? "Edit" : "Add"} post</DialogTitle>
           <DialogDescription>
             Make changes to your profile here. Click save when you're done.
           </DialogDescription>
@@ -65,9 +52,9 @@ const AddPostModalForm: React.FC<IProps> = ({
                     <SelectValue placeholder="Choose one" />
                   </SelectTrigger>
                   <SelectContent>
-                    {users.map(({ id, name }) => (
+                    {postContext.users.map(({ id, username }) => (
                       <SelectItem key={String(id)} value={String(id)}>
-                        {name}
+                        {username}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -99,7 +86,19 @@ const AddPostModalForm: React.FC<IProps> = ({
               </div>
             </div>
             <DialogFooter>
-              <Button type="submit" name="intent" value="create">
+              {canEdit && (
+                <Input
+                  type="hidden"
+                  name="id"
+                  value={postContext.selectedPostId}
+                  readOnly
+                />
+              )}
+              <Button
+                type="submit"
+                name="intent"
+                value={canEdit ? "update" : "create"}
+              >
                 Save
               </Button>
             </DialogFooter>
