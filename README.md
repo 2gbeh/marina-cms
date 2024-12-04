@@ -88,6 +88,5 @@ Make sure to deploy the output of `npm run build`
 
 ```bash
 $ npm install -g json-server
-
 $ json-server --watch ./app/data/posts.json --port=8000
 ```
