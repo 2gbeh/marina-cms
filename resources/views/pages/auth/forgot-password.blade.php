@@ -1,25 +1,33 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-    </div>
+@extends('layouts.auth')
 
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@section('title', 'Forgot Password')
 
-    <form method="POST" action="{{ route('password.email') }}">
-        @csrf
+@section('content')
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt="">
+    <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight tw-text">Retrieve password reset link</h2>
+  </div>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form class="space-y-6" action="#" method="POST">
+      <div>
+        <label for="email" class="tw-label">Email</label>
+        <div class="mt-2">
+          <input type="email" name="email" id="email" autocomplete="email" required class="tw-input"
+            placeholder="Enter email">
         </div>
+      </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
-        </div>
+      <div>
+        <button type="submit" class="tw-button">Send</button>
+      </div>
     </form>
-</x-guest-layout>
+
+    <p class="mt-10 text-center text-sm/6 tw-subtext">
+      Don't have an account?
+      <a href="{{ route('register.create') }}" class="tw-link">Sign up</a>
+    </p>
+  </div>
+</div>
+@endsection

@@ -3,14 +3,12 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\ConfirmPasswordController;
+use App\Http\Controllers\Auth\UpdatePasswordController;
 use App\Http\Controllers\Auth\LogoutController;
 use Illuminate\Support\Facades\Route;
-// 
-use App\Http\Controllers\Auth\ConfirmablePasswordController;
-use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\Auth\EmailVerificationPromptController;
-use App\Http\Controllers\Auth\VerifyEmailController;
 
 Route::middleware('guest')->group(function () {
     Route::name('login')->controller(LoginController::class)->group(function () {
@@ -35,23 +33,20 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    // Route::get('verify-email', EmailVerificationPromptController::class)
-    //     ->name('verification.notice');
+    Route::name('verify-email')->controller(VerifyEmailController::class)->group(function () {
+        Route::get('/verify-email', 'create')->name('.create');
+        Route::middleware('throttle:6,1')->group(function () {
+            Route::get('/verify-email/{id}/{hash}', 'verify')->middleware('signed')->name('.verify');
+            Route::post('/verify-email', 'store')->name('.store');
+        });
+    });
 
-    // Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
-    //     ->middleware(['signed', 'throttle:6,1'])
-    //     ->name('verification.verify');
+    Route::name('confirm-password')->controller(ConfirmPasswordController::class)->group(function () {
+        Route::get('/confirm-password', 'create')->name('.create');
+        Route::post('/confirm-password', 'store')->name('.store');
+    });
+    
+    Route::patch('/update-password', UpdatePasswordController::class)->name('update-password');
 
-    // Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-    //     ->middleware('throttle:6,1')
-    //     ->name('verification.send');
-
-    // Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
-    //     ->name('password.confirm');
-
-    // Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
-
-    // Route::put('password', [PasswordController::class, 'update'])->name('password.update');
-
-    Route::post('logout', LogoutController::class)->name('logout');
+    Route::post('/logout', LogoutController::class)->name('logout');
 });
