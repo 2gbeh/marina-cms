@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.tw-text {
+  @apply text-black dark:text-white
+}
+
+.tw-subtext {
+  @apply text-gray-500 dark:text-gray-400
+}
+
+.tw-surface {
+  @apply bg-white dark:bg-black
+}
+
+.tw-label {
+  @apply block text-sm/6 font-medium text-black dark:text-white
+}
+
+.tw-input {
+  @apply bg-white dark:bg-[#1c2433] text-black dark:text-white outline-gray-300 dark:outline-[#333a48] placeholder:text-gray-400 focus:outline-primary dark:focus:outline-primary-dark block w-full rounded-md px-3 py-1.5 text-base outline outline-1 -outline-offset-1 focus:outline focus:outline-2 focus:-outline-offset-2 sm:text-sm/6
+}
+
+.tw-button {
+  @apply bg-primary dark:bg-primary-dark hover:bg-secondary dark:hover:bg-secondary-dark text-white focus-visible:outline-primary flex w-full justify-center rounded-md px-3 py-1.5 text-sm/6 font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
+}
+
+.tw-link {
+  @apply font-semibold text-primary dark:text-primary-dark hover:text-secondary dark:hover:text-secondary-dark
+}

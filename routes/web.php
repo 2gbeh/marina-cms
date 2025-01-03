@@ -4,8 +4,6 @@ use App\Http\Controllers\Main\DashboardController;
 use App\Http\Controllers\Main\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'pages.welcome')->name('welcome');
-
 Route::middleware('auth')->group(function () {
     Route::middleware('verified')->group(function () {
         Route::get('/dashboard', DashboardController::class)->name('dashboard');
