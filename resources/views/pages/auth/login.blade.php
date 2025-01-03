@@ -24,7 +24,7 @@
         <div class="flex items-center justify-between">
           <label for="password" class="tw-label">Password</label>
           <div class="text-sm">
-            <a href="{{ route('forgot-password.create') }}" class="tw-link">Forgot password?</a>
+            <a href="{{ route('forgot-password') }}" class="tw-link">Forgot password?</a>
           </div>
         </div>
         <div class="mt-2">
@@ -41,7 +41,7 @@
 
     <p class="mt-10 text-center text-sm/6 tw-subtext">
       Don't have an account?
-      <a href="{{ route('register.create') }}" class="tw-link">Sign up</a>
+      <a href="{{ route('register') }}" class="tw-link">Sign up</a>
     </p>
   </div>
 </div>

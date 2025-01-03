@@ -26,7 +26,7 @@
 
     <p class="mt-10 text-center text-sm/6 tw-subtext">
       Don't have an account?
-      <a href="{{ route('register.create') }}" class="tw-link">Sign up</a>
+      <a href="{{ route('register') }}" class="tw-link">Sign up</a>
     </p>
   </div>
 </div>

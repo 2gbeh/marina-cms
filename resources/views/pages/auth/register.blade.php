@@ -7,7 +7,7 @@
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
         <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
             alt="">
-        <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight tw-text">Create an 
+        <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight tw-text">Create an
             organization account</h2>
     </div>
 
@@ -37,7 +37,7 @@
             <div>
                 <label for="email" class="tw-label">Confirm Password</label>
                 <div class="mt-2">
-                   <input type="password" name="password" id="password" autocomplete="current-password" required
+                    <input type="password" name="password" id="password" autocomplete="current-password" required
                         class="tw-input" placeholder="Re-type password">
                 </div>
             </div>
@@ -49,7 +49,7 @@
 
         <p class="mt-10 text-center text-sm/6 tw-subtext">
             Already have an account?
-            <a href="{{ route('login.create') }}" class="tw-link">Sign in</a>
+            <a href="{{ route('login') }}" class="tw-link">Sign in</a>
         </p>
     </div>
 </div>

@@ -9,6 +9,6 @@ class DashboardController extends Controller
 {
   public function __invoke(): View
   {
-    return $this->mainView('dashboard.index');
+    return $this->rootView('dashboard.index');
   }
 }
