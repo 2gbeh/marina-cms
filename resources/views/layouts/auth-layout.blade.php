@@ -1,4 +1,4 @@
-@extends('layouts.root')
+@extends('layouts.root-layout')
 
 @section('body')
 

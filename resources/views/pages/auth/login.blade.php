@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('layouts.auth-layout')
 
 @section('title', 'Log in')
 
@@ -31,7 +31,7 @@
         </div>
         <div class="mt-2">
           <input type="password" name="password" id="password" autocomplete="password" required class="tw-input"
-            placeholder="Enter password"  value="{{ old('password', $formData->password) }}">
+            placeholder="Enter password" value="{{ old('password', $formData->password) }}">
         </div>
       </div>
 
