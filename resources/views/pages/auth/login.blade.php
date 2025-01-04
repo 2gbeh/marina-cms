@@ -11,12 +11,14 @@
   </div>
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form class="space-y-6" action="#" method="POST">
+    <form class="space-y-6" method="POST" action="{{ route('login') }}">
+      @csrf
+
       <div>
-        <label for="email" class="tw-label">Username</label>
+        <label for="email" class="tw-label">Email</label>
         <div class="mt-2">
           <input type="email" name="email" id="email" autocomplete="email" required class="tw-input"
-            placeholder="Email or phone number">
+            placeholder="Enter email" value="{{ old('email', $formData->email) }}">
         </div>
       </div>
 
@@ -28,8 +30,8 @@
           </div>
         </div>
         <div class="mt-2">
-          <input type="password" name="password" id="password" autocomplete="current-password" required class="tw-input"
-            value="password">
+          <input type="password" name="password" id="password" autocomplete="password" required class="tw-input"
+            placeholder="Enter password"  value="{{ old('password', $formData->password) }}">
         </div>
       </div>
 

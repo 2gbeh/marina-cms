@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use App\Helpers\PrototypeHelper as Ph;
 
 class LoginController extends Controller
 {
@@ -14,7 +15,16 @@ class LoginController extends Controller
      */
     public function create(): View
     {
-        return $this->authView('login');
+        $formData = new \stdClass();
+        $formData->email = '';
+        $formData->password = '';
+
+        if (Ph::auth()->formData) {
+            $formData->email = 'dehphantom@yahoo.com';
+            $formData->password = 'password';
+        }
+
+        return $this->authView('login', [compact('formData')]);
     }
 
     /**
