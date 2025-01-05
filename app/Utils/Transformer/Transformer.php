@@ -45,7 +45,7 @@ class Transformer
     foreach ($data as $d) {
       $availability =  $d->close === 0;
       // 
-      $obj = new \stdClass;
+      $obj = new \stdClass();
       $obj->dates = ["{$d->start}:{$d->end}"];
       $obj->availability = $availability;
       if ($availability) {
