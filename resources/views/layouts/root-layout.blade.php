@@ -13,16 +13,21 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-    <!-- Bootstrap Css -->
-    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
-    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    @vite([
+    // Bootstrap Css
+    'resources/assets/css/bootstrap.min.css',
+    // Icons Css
+    'resources/assets/css/icons.min.css',
+    // App Css
+    'resources/assets/css/app.min.css',
+    ])
 
-    <!-- Scripts -->
+    {{-- Child styles --}}
+    @stack('styles')
+    {{-- Child scripts --}}
+    @stack('scripts')
+
+    <!-- Compiled assets -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 

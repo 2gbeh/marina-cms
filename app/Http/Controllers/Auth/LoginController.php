@@ -24,7 +24,7 @@ class LoginController extends Controller
             $formData->password = 'password';
         }
 
-        return $this->authView('login', [compact('formData')]);
+        return $this->authView('login', ['formData' => $formData]);
     }
 
     /**

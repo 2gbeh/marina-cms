@@ -7,9 +7,11 @@
 <!-- <body data-layout="horizontal" data-topbar="colored"> -->
 
 <!-- Begin page -->
+{{-- <img src="{{ Vite::images('icon.png') }}" alt="" /> --}}
+<!-- Begin page -->
 <div id="layout-wrapper">
 
-    <img src="{{ Vite::images('icon.png') }}" alt="" />
+
     <header id="page-topbar">
         <div class="navbar-header">
             <div class="d-flex">
@@ -1541,6 +1543,11 @@
 <!-- Right bar overlay-->
 <div class="rightbar-overlay"></div>
 
-
-
 @endsection
+
+@push('inline-scripts')
+@vite([
+'resources/assets/libs/apexcharts/apexcharts.min.js',
+'resources/assets/js/pages/dashboard.init.js'
+])
+@endpush
