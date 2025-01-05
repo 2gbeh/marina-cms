@@ -19,18 +19,21 @@ Multi-Tenant Enterprise Application Software
 ## Setup
 
 ```bash
+# clone project repository
 $ git clone https://github.com/2gbeh/marina-cms.git
-
+# navigate to project folder
 $ cd marina-cms
-
+# install dev dependencies 
 $ npm install
-
 $ composer install
-
-# OPTIONAL copy .env credentials
-
+# copy environment vars
+$ cp .env.example .env
+# generate new app key
+$ php artisan key:generate
+# execute database migrations
+$ php artisan migrate
+# start dev servers
 $ npm run dev
-
 $ php artisan serve
 ```
 
