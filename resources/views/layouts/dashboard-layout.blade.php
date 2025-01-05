@@ -2,6 +2,8 @@
 
 @section('body')
 
+<!-- <body data-layout="horizontal" data-topbar="colored"> -->
+
 <body class="">
     @yield('content')
 
