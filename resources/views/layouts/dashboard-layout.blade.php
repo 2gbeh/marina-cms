@@ -5,7 +5,21 @@
 <!-- <body data-layout="horizontal" data-topbar="colored"> -->
 
 <body class="">
-    @yield('content')
+    <div id="layout-wrapper">
+        {{-- HEADER--}}
+        @includeIf('shared.header')
+        {{-- SIDEBAR --}}
+        @includeIf('shared.sidebar')
+        <div class="main-content">
+            <div class="page-content">
+                @yield('content')
+            </div>
+        </div>
+        {{-- FOOTER --}}
+        @includeIf('shared.footer')
+    </div>
+
+    @includeIf('shared.aside')
 
     @vite([
     // jQuery
