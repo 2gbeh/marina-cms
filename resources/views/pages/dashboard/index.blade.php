@@ -1548,6 +1548,6 @@
 @push('inline-scripts')
 @vite([
 'resources/assets/libs/apexcharts/apexcharts.min.js',
-'resources/assets/js/pages/dashboard.init.js'
+'resources/assets/js/pages/dashboard.init.js',
 ])
 @endpush

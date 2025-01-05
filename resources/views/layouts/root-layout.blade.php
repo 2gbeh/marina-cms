@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="Themesbrand" name="author" />
+    <meta name="description" content="Multi-Tenant Enterprise Application Software" />
+    <meta name="owner" content="HWP Labs" />
+    <meta name="author" content="Emmanuel Tugbeh" />
     <title>@yield('title') - Marina CMS</title>
 
     <!-- Fonts -->
@@ -28,7 +29,7 @@
     @stack('scripts')
 
     <!-- Compiled assets -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/js/app.js'])
 </head>
 
 @yield('body')
