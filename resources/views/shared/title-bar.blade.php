@@ -7,7 +7,10 @@
       <div class="page-title-right">
         <ol class="breadcrumb m-0">
           {{-- <li class="breadcrumb-item"><a href="javascript: void(0);">Minible</a></li> --}}
-          <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+          <li class="breadcrumb-item">
+            <i class="uil-home-alt"></i>
+            <a href="/dashboard">Home</a>
+          </li>
           <li class="breadcrumb-item active">{{ $title }}</li>
         </ol>
       </div>

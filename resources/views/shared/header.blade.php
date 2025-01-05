@@ -7,12 +7,8 @@
       <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
         <i class="fa fa-fw fa-bars"></i>
       </button>
-      {{-- SEARCH BAR (DESKTOP) --}}
-      <x-header.search-bar />
     </div>
     <div class="d-flex">
-      {{-- SEARCH BAR (MOBILE) --}}
-      <x-header.search-bar mobile />
       {{-- NOTIFICATIONS --}}
       <x-header.notifications />
       {{-- ACCOUNT MENU --}}

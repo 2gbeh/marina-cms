@@ -5,26 +5,22 @@
 @section('content')
 
 <div class="container-fluid">
-  {{-- TITLE BAR --}}
+  {{-- HEADING --}}
   @includeIf('shared.title-bar', ['title' => 'Dashboard'])
-  {{-- KPI CARDS --}}
-  @includeIf('pages.dashboard.partials.kpi-cards')
   <div class="row">
-    {{-- SALES ANALYSIS CHART --}}
-    @includeIf('pages.dashboard.partials.sales-analysis-chart')
-    {{-- TOP PRODUCTS --}}
-    @includeIf('pages.dashboard.partials.top-products')
+    {{-- CARDS --}}
+    @includeIf('pages.dashboard.partials.kpi-cards')
   </div>
   <div class="row">
-    {{-- TOP USERS --}}
-    @includeIf('pages.dashboard.partials.top-users')
-    {{-- ACTIVITY LOGS --}}
-    @includeIf('pages.dashboard.partials.activity-logs')
-    {{-- SOCIAL MEDIA KPIS --}}
-    @includeIf('pages.dashboard.partials.social-media-kpis')
+    <div class="col-xl-8">
+      {{-- TABLE --}}
+      @includeIf('pages.dashboard.partials.latest-transactions')
+    </div>
+    <div class="col-xl-4">
+      {{-- TIMELINE --}}
+      @includeIf('pages.dashboard.partials.activity-logs')
+    </div>
   </div>
-  {{--LATEST TRANSACTIONS --}}
-  @includeIf('pages.dashboard.partials.latest-transactions')
 </div>
 
 @endsection
