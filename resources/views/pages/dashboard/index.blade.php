@@ -27,6 +27,7 @@
 
 @push('inline-scripts')
 @vite([
+'resources/assets/libs/jquery.counterup/jquery.counterup.min.js',
 'resources/assets/libs/apexcharts/apexcharts.min.js',
 'resources/assets/js/pages/dashboard.init.js',
 ])

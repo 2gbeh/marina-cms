@@ -8,7 +8,7 @@
     <meta name="description" content="Multi-Tenant Enterprise Application Software" />
     <meta name="owner" content="HWP Labs" />
     <meta name="author" content="Emmanuel Tugbeh" />
-    <title>@yield('title') - Marina CMS</title>
+    <title>@yield('title') - {!! __('app.stylized') !!}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">

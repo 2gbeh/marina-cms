@@ -13,8 +13,8 @@
 -   -   /cta-card (campaign)
 -   -   /labelled-progress-bar
 -   grid 3
--   -   table (no header)
--   -   timeline
+-   -   /table (no header)
+-   -   /timeline
 -   -   /social-kpis
 -   /table
 -   /footer

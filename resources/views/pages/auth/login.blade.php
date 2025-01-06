@@ -3,48 +3,48 @@
 @section('title', 'Log in')
 
 @section('content')
-<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-    <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt="">
-    <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight tw-text">Sign in to your
-      account</h2>
+<div class="card-body p-4">
+  <div class="text-center mt-2">
+    <h5 class="text-primary">Welcome Back !</h5>
+    <p class="text-muted">Sign in to continue to Minible.</p>
   </div>
-
-  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form class="space-y-6" method="POST" action="{{ route('login') }}">
+  <div class="p-2 mt-4">
+    <form method="POST" action="{{ route('login') }}">
       @csrf
 
-      <div>
-        <label for="email" class="tw-label">Email</label>
-        <div class="mt-2">
-          <input type="email" name="email" id="email" autocomplete="email" required class="tw-input"
-            placeholder="Enter email" value="{{ old('email', $formData->email) }}">
-        </div>
+      <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email"
+          value="{{ old('email', $formData->email) }}" required />
       </div>
 
-      <div>
-        <div class="flex items-center justify-between">
-          <label for="password" class="tw-label">Password</label>
-          <div class="text-sm">
-            <a href="{{ route('forgot-password') }}" class="tw-link">Forgot password?</a>
-          </div>
+      <div class="mb-3">
+        <div class="float-end">
+          <a href="{{ route('forgot-password') }}" class="text-muted">Forgot password?</a>
         </div>
-        <div class="mt-2">
-          <input type="password" name="password" id="password" autocomplete="password" required class="tw-input"
-            placeholder="Enter password" value="{{ old('password', $formData->password) }}">
-        </div>
+        <label class="form-label" for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"
+          value="{{ old('password', $formData->password) }}" required />
       </div>
 
-      <div>
-        <button type="submit" class="tw-button">Sign
-          in</button>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="auth-remember-check">
+        <label class="form-check-label" for="auth-remember-check">Remember me</label>
+      </div>
+
+      <div class="mt-3 text-end">
+        <button class="btn btn-primary w-sm waves-effect waves-light" type="submit">Log In</button>
+      </div>
+
+      <div class="mt-4 text-center">
+        <p class="mb-0">Don't have an account ?
+          <a href="{{ route('register') }}" class="fw-medium text-primary">
+            Register
+          </a>
+        </p>
       </div>
     </form>
-
-    <p class="mt-10 text-center text-sm/6 tw-subtext">
-      Don't have an account?
-      <a href="{{ route('register') }}" class="tw-link">Sign up</a>
-    </p>
   </div>
+
 </div>
 @endsection
