@@ -20,7 +20,7 @@ class LoginController extends Controller
         $formData->password = '';
 
         if (P::auth()->formData) {
-            $formData->email = 'ehphantom@yahoo.com';
+            $formData->email = 'dehphantom@yahoo.com';
             $formData->password = 'password';
         }
 

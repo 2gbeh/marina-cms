@@ -3,16 +3,19 @@
 @section('body')
 
 <body class="">
+    {{-- TOAST --}}
+    {{-- <x-live-toast :error-bag="$errors->get('email')" /> --}}
+    {{-- CONTAINER --}}
     <div id="layout-wrapper">
         {{-- HEADER--}}
         @includeIf('shared.header')
         {{-- SIDEBAR --}}
         @includeIf('shared.sidebar')
-        <div class="main-content">
+        <main class="main-content">
             <div class="page-content">
                 @yield('content')
             </div>
-        </div>
+        </main>
         {{-- FOOTER --}}
         @includeIf('shared.footer')
     </div>
@@ -23,6 +26,7 @@
     // Bootstrap
     'resources/assets/libs/bootstrap/js/bootstrap.bundle.min.js',
     // Others
+    'resources/assets/js/pages/bootstrap-toasts.init.js',
     'resources/assets/libs/node-waves/waves.min.js',
     'resources/assets/libs/metismenu/metisMenu.min.js',
     'resources/assets/libs/simplebar/simplebar.min.js',

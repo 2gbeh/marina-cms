@@ -1,4 +1,5 @@
-<!-- ========== Left Sidebar Start ========== -->
+@use('App\Helpers\SidebarHelper', 'SidebarHelper')
+
 <div class="vertical-menu" style="background-color: #1c2742;">
     {{-- LOGO --}}
     <x-drawer-logo />
@@ -10,11 +11,35 @@
         <div id="sidebar-menu">
             {{-- SIDEBAR MENU --}}
             <ul class="metismenu list-unstyled" id="side-menu">
+                <x-sidebar.menu :href="route('dashboard')" icon="uil-home-alt">
+                    Dashboard
+                </x-sidebar.menu>
+                {{-- --}}
+                <x-sidebar.menu icon="uil-invoice">
+                    Transactions
+                    <x-slot:is-nested>
+                        <x-sidebar.sub-menu>
+                            Add Transaction
+                        </x-sidebar.sub-menu>
+                        <x-sidebar.sub-menu badge="15">
+                            View Transactions
+                        </x-sidebar.sub-menu>
+                        </x-slot>
+                </x-sidebar.menu>
+                {{-- --}}
+                <x-sidebar.section>
+                    Webmaster
+                </x-sidebar.section>
+                {{--
                 <li>
-                    <a href="/dashboard" class="waves-effect text-reset" style="background-color: #1c2742; color: #fff;">
-                        <i class="uil-home-alt" style="color: #fff;"></i>
-                        <span>Dashboard</span>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="uil-store"></i>
+                        <span>Transactions</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/transactions">Add New</a></li>
+                        <li><a href="transactions/create">View All</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="/transactions" class="waves-effect" style="color: #ccc;">
@@ -48,7 +73,7 @@
                         <i class="uil-chart-pie" style="color: #ccc;"></i>
                         <span>Reports</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

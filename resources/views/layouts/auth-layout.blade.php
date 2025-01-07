@@ -3,6 +3,9 @@
 @section('body')
 
 <body class="authentication-bg">
+    {{-- TOAST --}}
+    {{-- <x-live-toast :error-bag="$errors->get('email')" /> --}}
+    {{-- CONTAINER --}}
     <div class="account-pages my-5 pt-sm-5">
         <div class="container">
             <div class="row">
@@ -16,9 +19,9 @@
             </div>
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-8 col-lg-6 col-xl-5">
-                    <div class="card">
+                    <main class="card">
                         @yield('content')
-                    </div>
+                    </main>
 
                     <div class="mt-5 text-center">
                         {!! __('app.copyright') !!}

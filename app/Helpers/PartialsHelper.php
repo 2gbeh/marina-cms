@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-// @use('App\Helpers\PartialsHelper', 'partialsHelper')
+// @inject('partialsHelper', 'App\Helpers\PartialsHelper')
 // $partialsHelper->set('pages.posts.partials');
 // $partialsHelper->get('create-post-form');
 
