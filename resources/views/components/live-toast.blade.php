@@ -1,11 +1,14 @@
-@props(['title'=>'Error', 'message'])
+{{-- CLASS-BASED COMPONENT --}}
 
-<button type="button" class="d-none" id="liveToastBtn"></button>
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+@isset($message)
+
+<button type="button" class="d-none" id="liveToastBtn">Toast!</button>
+
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
   <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
-      <img src="{{ Vite::images('icon.png') }}" alt="" class="me-2" height="18">
-      <strong class="me-auto">{{ $title }}</strong>
+      <i @class(["me-2", $ctx->icon, $ctx->color])></i>
+      <strong @class(["me-auto", $ctx->color])>{{ $ctx->title }}</strong>
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body">
@@ -14,11 +17,11 @@
   </div>
 </div>
 
-
 @push('scripts')
 <script>
-$(() => {
-  console.log("jQuery is working!");
-});
+  $(() => $('#liveToastBtn').click());
+  // $(() => $('#liveToast').toggle());
 </script>
 @endpush
+
+@endisset

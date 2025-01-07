@@ -1,4 +1,4 @@
-{{-- NOTE: class-based component --}}
+{{-- CLASS-BASED COMPONENT --}}
 
 @isset ($options)
 <div class="float-end">

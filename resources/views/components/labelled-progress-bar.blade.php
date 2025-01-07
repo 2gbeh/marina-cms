@@ -1,4 +1,4 @@
-{{-- NOTE: class-based component --}}
+{{-- CLASS-BASED COMPONENT --}}
 
 <div class="row align-items-center g-0 mt-3">
   <div class="col-sm-3">

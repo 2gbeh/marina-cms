@@ -8,9 +8,7 @@ use Illuminate\View\View;
 class LabelledProgressBar extends Component
 {
   public object $color;
-  /**
-   * Create the component instance.
-   */
+
   public function __construct(
     public string $label,
     public ?int $value,
@@ -28,10 +26,7 @@ class LabelledProgressBar extends Component
     }
     $this->color = $color;
   }
-
-  /**
-   * Get the view / contents that represents the component.
-   */
+  
   public function render(): View
   {
     return view('components.labelled-progress-bar');
