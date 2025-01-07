@@ -1,5 +1,3 @@
-@use('App\Helpers\SidebarHelper', 'SidebarHelper')
-
 <div class="vertical-menu" style="background-color: #1c2742;">
     {{-- LOGO --}}
     <x-drawer-logo />
@@ -27,53 +25,37 @@
                         </x-slot>
                 </x-sidebar.menu>
                 {{-- --}}
-                <x-sidebar.section>
-                    Webmaster
-                </x-sidebar.section>
-                {{--
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-store"></i>
-                        <span>Transactions</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/transactions">Add New</a></li>
-                        <li><a href="transactions/create">View All</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/transactions" class="waves-effect" style="color: #ccc;">
-                        <i class="uil-invoice" style="color: #ccc;"></i>
-                        <span class="badge rounded-pill bg-danger float-end">15</span>
-                        <span>Transactions</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/customers" class="waves-effect" style="color: #ccc;">
-                        <i class="uil-book-alt" style="color: #ccc;"></i>
-                        <span class="badge rounded-pill bg-danger float-end">92</span>
-                        <span>Customers</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/collectors" class="waves-effect" style="color: #ccc;">
-                        <i class="uil-user-circle" style="color: #ccc;"></i>
-                        <span>Collectors</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/activity-logs" class="waves-effect" style="color: #ccc;">
-                        <i class="uil-server-connection" style="color: #ccc;"></i>
-                        <span class="badge rounded-pill bg-warning float-end">New</span>
-                        <span>Activity Logs</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/reports" class="waves-effect" style="color: #ccc;">
-                        <i class="uil-chart-pie" style="color: #ccc;"></i>
-                        <span>Reports</span>
-                    </a>
-                </li> --}}
+                <x-sidebar.menu icon="uil-user-circle">
+                    Customers
+                    <x-slot:is-nested>
+                        <x-sidebar.sub-menu>
+                            Add Customer
+                        </x-sidebar.sub-menu>
+                        <x-sidebar.sub-menu badge="92">
+                            View Customers
+                        </x-sidebar.sub-menu>
+                        </x-slot>
+                </x-sidebar.menu>
+                {{-- --}}
+                <x-sidebar.menu icon="uil-user-nurse">
+                    Collectors
+                    <x-slot:is-nested>
+                        <x-sidebar.sub-menu>
+                            Add Collector
+                        </x-sidebar.sub-menu>
+                        <x-sidebar.sub-menu>
+                            View Collectors
+                        </x-sidebar.sub-menu>
+                        </x-slot>
+                </x-sidebar.menu>
+                {{-- --}}
+                <x-sidebar.menu icon="uil-server-connection" feat>
+                    Activity Logs
+                </x-sidebar.menu>
+                {{-- --}}
+                @includeIf('shared.sidebar-admin')
+                {{-- --}}
+                @includeIf('shared.sidebar-super-admin')
             </ul>
         </div>
     </div>
