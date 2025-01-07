@@ -11,13 +11,13 @@
             {{-- SIDEBAR MENU --}}
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li>
-                    <a href="/dashboard_" class="waves-effect" style="background-color: #1c2742; color: #fff;">
+                    <a href="/dashboard" class="waves-effect text-reset" style="background-color: #1c2742; color: #fff;">
                         <i class="uil-home-alt" style="color: #fff;"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/collectors" class="waves-effect" style="color: #ccc;">
+                    <a href="/transactions" class="waves-effect" style="color: #ccc;">
                         <i class="uil-invoice" style="color: #ccc;"></i>
                         <span class="badge rounded-pill bg-danger float-end">15</span>
                         <span>Transactions</span>
@@ -37,14 +37,14 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/collectors" class="waves-effect" style="color: #ccc;">
+                    <a href="/activity-logs" class="waves-effect" style="color: #ccc;">
                         <i class="uil-server-connection" style="color: #ccc;"></i>
                         <span class="badge rounded-pill bg-warning float-end">New</span>
                         <span>Activity Logs</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/collectors" class="waves-effect" style="color: #ccc;">
+                    <a href="/reports" class="waves-effect" style="color: #ccc;">
                         <i class="uil-chart-pie" style="color: #ccc;"></i>
                         <span>Reports</span>
                     </a>

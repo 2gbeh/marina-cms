@@ -1,4 +1,4 @@
-@extends('layouts.root-layout')
+@extends('layouts.app-layout')
 
 @section('body')
 
@@ -20,8 +20,6 @@
     @includeIf('shared.aside')
 
     @vite([
-    // jQuery
-    'resources/assets/libs/jquery/jquery.min.js',
     // Bootstrap
     'resources/assets/libs/bootstrap/js/bootstrap.bundle.min.js',
     // Others
@@ -32,7 +30,7 @@
     ])
 
     {{-- Child scripts --}}
-    @stack('inline-scripts')
+    @stack('scripts')
 
     {{-- App js --}}
     @vite('resources/assets/js/app.js')

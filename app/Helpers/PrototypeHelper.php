@@ -2,8 +2,8 @@
 
 namespace App\Helpers;
 
-// use App\Helpers\PrototypeHelper as Ph;
-// Ph::auth()->formData;
+// use App\Helpers\PrototypeHelper as P;
+// P::auth()->formData;
 
 class PrototypeHelper
 {

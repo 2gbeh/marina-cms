@@ -13,6 +13,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <script src="{{ asset('scripts/jquery.min.js') }}"></script>
 
     @vite([
     // Bootstrap Css
@@ -22,11 +23,6 @@
     // App Css
     'resources/assets/css/app.min.css',
     ])
-
-    {{-- Child styles --}}
-    @stack('styles')
-    {{-- Child scripts --}}
-    @stack('scripts')
 
     <!-- Compiled assets -->
     @vite(['resources/js/app.js'])

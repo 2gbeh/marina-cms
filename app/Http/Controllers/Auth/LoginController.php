@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
-use App\Helpers\PrototypeHelper as Ph;
+use App\Helpers\PrototypeHelper as P;
 
 class LoginController extends Controller
 {
@@ -19,8 +19,8 @@ class LoginController extends Controller
         $formData->email = '';
         $formData->password = '';
 
-        if (Ph::auth()->formData) {
-            $formData->email = 'dehphantom@yahoo.com';
+        if (P::auth()->formData) {
+            $formData->email = 'ehphantom@yahoo.com';
             $formData->password = 'password';
         }
 

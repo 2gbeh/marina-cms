@@ -5,9 +5,10 @@
 @section('content')
 <div class="card-body p-4">
   <div class="text-center mt-2">
-    <h5 class="text-primary">Welcome Back !</h5>
+    <h5 class="text-primary">Welcome back !</h5>
     <p class="text-muted">Sign in to continue to Minible.</p>
   </div>
+  <x-live-toast title="Error" message="Hello, World!" />
   <div class="p-2 mt-4">
     <form method="POST" action="{{ route('login') }}">
       @csrf
@@ -33,11 +34,11 @@
       </div>
 
       <div class="mt-3 text-end">
-        <button class="btn btn-primary w-sm waves-effect waves-light" type="submit">Log In</button>
+        <button class="btn btn-primary w-sm waves-effect waves-light" type="submit">Log in</button>
       </div>
 
       <div class="mt-4 text-center">
-        <p class="mb-0">Don't have an account ?
+        <p class="mb-0">Don't have an account?
           <a href="{{ route('register') }}" class="fw-medium text-primary">
             Register
           </a>
@@ -45,6 +46,5 @@
       </div>
     </form>
   </div>
-
 </div>
 @endsection

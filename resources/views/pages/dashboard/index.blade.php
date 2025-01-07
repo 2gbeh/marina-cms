@@ -2,6 +2,12 @@
 
 @section('title', 'Dashboard')
 
+@php
+function x(string $fileName):string{
+return "pages.dashboard.partials.{$fileName}";
+}
+@endphp
+
 @section('content')
 
 <div class="container-fluid">
@@ -9,23 +15,23 @@
   @includeIf('shared.title-bar', ['title' => 'Dashboard'])
   <div class="row">
     {{-- CARDS --}}
-    @includeIf('pages.dashboard.partials.kpi-cards')
+    @includeIf(x('kpi-cards'))
   </div>
   <div class="row">
     <div class="col-xl-8">
       {{-- TABLE --}}
-      @includeIf('pages.dashboard.partials.latest-transactions')
+      @includeIf(x('latest-transactions'))
     </div>
     <div class="col-xl-4">
       {{-- TIMELINE --}}
-      @includeIf('pages.dashboard.partials.activity-logs')
+      @includeIf(x('activity-logs'))
     </div>
   </div>
 </div>
 
 @endsection
 
-@push('inline-scripts')
+@push('scripts')
 @vite([
 'resources/assets/libs/jquery.counterup/jquery.counterup.min.js',
 'resources/assets/libs/apexcharts/apexcharts.min.js',
