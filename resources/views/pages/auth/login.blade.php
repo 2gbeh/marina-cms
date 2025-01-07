@@ -10,7 +10,7 @@
   </div>
   <x-live-toast title="Error" message="Hello, World!" />
   <div class="p-2 mt-4">
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login') }}" id="form">
       @csrf
 
       <div class="mb-3">
@@ -21,7 +21,7 @@
 
       <div class="mb-3">
         <div class="float-end">
-          <a href="{{ route('forgot-password') }}" class="text-muted">Forgot password?</a>
+          <a href="{{ route('forgot-password') }}" class="text-primary">Forgot password?</a>
         </div>
         <label class="form-label" for="password">Password</label>
         <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"
@@ -34,7 +34,7 @@
       </div>
 
       <div class="mt-3 text-end">
-        <button class="btn btn-primary w-sm waves-effect waves-light" type="submit">Log in</button>
+       <x-auth.submit-button text="Log In" />
       </div>
 
       <div class="mt-4 text-center">

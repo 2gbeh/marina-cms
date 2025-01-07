@@ -12,7 +12,10 @@
       {{-- NOTIFICATIONS --}}
       <x-header.notifications />
       {{-- ACCOUNT MENU --}}
-      <x-header.account-menu />
+      <x-header.account-menu>
+        {{-- LOGOUT BUTTON --}}
+        <x-header.logout-button />
+      </x-header.account-menu>
     </div>
   </div>
 </header>

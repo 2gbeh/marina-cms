@@ -16,6 +16,7 @@
         class="badge bg-soft-success rounded-pill mt-1 ms-2">03</span></a>
     <a class="dropdown-item" href="#"><i class="uil uil-lock-alt font-size-18 align-middle me-1 text-muted"></i>
       <span class="align-middle">Lock screen</span></a>
-    <x-header.logout-btn />
+
+    {{ $slot }}
   </div>
 </div>

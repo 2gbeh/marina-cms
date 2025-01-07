@@ -8,9 +8,4 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get(
-    '/',
-    function () {
-        dd(P::auth()->formData, P::auth());
-    }
-);
+Route::get('/ping', fn () => P::auth());
