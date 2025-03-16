@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="https://plymouth.onrender.com" target="blank">
+  <a href="https://marina-cms.onrender.com" target="blank">
     <img src="./public/icon.png" width="100" alt="Logo" />
   </a>
 </p>
 
-# Plymouth
+# Marina CMS
 
 Multi-Tenant Enterprise Application Software
 
@@ -20,9 +20,9 @@ Multi-Tenant Enterprise Application Software
 
 ```bash
 # clone project repository
-$ git clone https://github.com/2gbeh/plymouth.git
+$ git clone https://github.com/2gbeh/marina-cms.git
 # navigate to project folder
-$ cd plymouth
+$ cd marina-cms
 # install dev dependencies 
 $ npm install
 $ composer install
@@ -41,7 +41,7 @@ $ php artisan serve
 
 > Local: http://localhost:8000
 
-> Live: https://plymouth.onrender.com
+> Live: https://marina-cms.onrender.com
 
 ## Documentation
 
