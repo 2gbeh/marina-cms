@@ -5,7 +5,9 @@
   <x-card.header>
     <div class="d-flex align-items-center justify-content-between">
       Recent Transactions
-      <button class="btn btn-info">View all</button>
+      <button class="btn btn-info">View all
+      <i class="uil-arrow-up-right"></i>
+      </button>
     </div>
   </x-card.header>
   <div class="table-responsive">

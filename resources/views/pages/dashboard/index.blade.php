@@ -15,11 +15,13 @@ $partials->set("dashboard")
   <x-title-bar title="Dashboard" />
   {{-- TOOLBAR --}}
   <div class="pb-3 d-flex justify-content-end gap-3">
-    <button class="btn btn-primary">
+    <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
+      data-bs-target="#depositDialog">
       <i class="uil-money-withdraw me-1"></i>
       Deposit
     </button>
-    <button class="btn btn-success">
+    <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal"
+      data-bs-target="#withdrawDialog">
       <i class="uil-money-insert me-1"></i>
       Withdraw
     </button>
@@ -35,6 +37,10 @@ $partials->set("dashboard")
     </div>
   </div>
 </div>
+
+{{-- MODALS --}}
+@includeIf($partials->get('deposit-dialog'))
+@includeIf($partials->get('withdraw-dialog'))
 
 @endsection
 

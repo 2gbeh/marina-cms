@@ -22,8 +22,8 @@
     @isset ($rateValue)
     <p class="text-muted mt-3 mb-0">
       <span @class([ 'me-1' , $low ? 'text-danger' :'text-success'])>
-        <i @class([ 'me-1' , $low ? 'mdi mdi-arrow-down-bold' :'mdi mdi-arrow-up-bold'])></i>
-        {{ $rateValue }}%
+        <i @class([ 'me-1' , $low ? 'uil-arrow-down-right' :'uil-arrow-up-right'])></i>
+        {{ $rateValue }}
       </span>
       {{ $rateLabel }}
     </p>
