@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\DepositController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function () {
     Route::middleware('verified')->group(function () {
         Route::get('/dashboard', DashboardController::class)->name('dashboard');
-        Route::get('/admin/dashboard', AdminDashboardController::class)->name('dashboard');
+        Route::get('/deposit', DepositController::class)->name('deposit');
     });
     
     // Route::name('profile')->controller(ProfileController::class)->group(function () {
