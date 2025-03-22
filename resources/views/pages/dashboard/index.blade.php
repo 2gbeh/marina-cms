@@ -1,7 +1,5 @@
 @inject('partials', 'App\Helpers\BladePartialsHelper')
-
 @extends('layouts.dashboard-layout')
-
 @section('title', 'Dashboard')
 
 @php
@@ -9,17 +7,15 @@ $partials->set("dashboard")
 @endphp
 
 @section('content')
-
 <div class="container-fluid">
   {{-- HEADING --}}
   <x-title-bar title="Dashboard" />
   {{-- TOOLBAR --}}
   <div class="pb-3 d-flex justify-content-end gap-3">
-    <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
-      data-bs-target="#depositDialog">
+    <a href="{{ route('deposit') }}" class="btn btn-primary waves-effect waves-light">
       <i class="uil-money-withdraw me-1"></i>
       Deposit
-    </button>
+    </a>
     <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal"
       data-bs-target="#withdrawDialog">
       <i class="uil-money-insert me-1"></i>
@@ -39,9 +35,7 @@ $partials->set("dashboard")
 </div>
 
 {{-- MODALS --}}
-@includeIf($partials->get('deposit-dialog'))
 @includeIf($partials->get('withdraw-dialog'))
-
 @endsection
 
 @push('scripts')

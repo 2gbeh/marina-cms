@@ -8,6 +8,7 @@
 'rateLabel'=>'',
 'low'=>false
 ])
+
 <div class="card">
   <div class="card-body">
     <div class="float-end mt-2">

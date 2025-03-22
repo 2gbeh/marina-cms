@@ -1,42 +1,19 @@
 @inject('partials', 'App\Helpers\BladePartialsHelper')
-
 @extends('layouts.dashboard-layout')
-
-@section('title', 'Dashboard')
+@section('title', 'Deposit')
 
 @php
-$partials->set("dashboard")
+$partials->set("deposit")
 @endphp
 
+
 @section('content')
-
 <div class="container-fluid">
-
-  <!-- start page title -->
-  <div class="row">
-    <div class="col-12">
-      <div class="page-title-box d-flex align-items-center justify-content-between">
-        <h4 class="mb-0">Pricing</h4>
-
-        <div class="page-title-right">
-          <ol class="breadcrumb m-0">
-            <li class="breadcrumb-item"><a href="javascript: void(0);">Utility</a></li>
-            <li class="breadcrumb-item active">Pricing</li>
-          </ol>
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <!-- end page title -->
-
   <div class="row justify-content-center">
     <div class="col-lg-5">
-      <div class="text-center mb-5">
-        <h4>Choose your Pricing plan</h4>
-        <p class="text-muted mb-4">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-          laudantium, totam rem aperiam, eaque ipsa quae ab illo veritatis</p>
-
+      <div class="text-center mt-3 mb-5">
+        <h4>Deposit</h4>
+        <p class="text-muted mb-4">Deposit from exchange by direct transfer from your account</p>
       </div>
     </div>
   </div>
@@ -46,121 +23,29 @@ $partials->set("dashboard")
     <div class="col-lg-9">
       <div class="row">
         <div class="col-xl-4">
-          <div class="card pricing-box text-center">
-            <div class="card-body p-4">
-              <div>
-
-                <div class="mt-3">
-                  <h5 class="mb-1">Starter</h5>
-                  <p class="text-muted">Starter plans</p>
-                </div>
-
-                <div class="py-3">
-                  <i class="uil uil-edit h1 text-primary"></i>
-                </div>
-              </div>
-
-
-              <ul class="list-unstyled plan-features mt-3">
-                <li>Users: <span class="text-primary fw-semibold">1</span></li>
-                <li>Storage: <span class="text-primary fw-semibold">01 GB</span></li>
-                <li>Domain: <span class="text-primary fw-semibold">No</span></li>
-                <li>Support: <span class="text-primary fw-semibold">No</span></li>
-                <li>Setup: <span class="text-primary fw-semibold">No</span></li>
-              </ul>
-
-              <div class="py-4">
-                <h3><sup><small>$</small></sup> 19/ <span class="font-size-13 text-muted">Per month</span></h3>
-              </div>
-
-              <div class="text-center plan-btn my-2">
-                <a href="#" class="btn btn-primary waves-effect waves-light">Sign up Now</a>
-              </div>
-            </div>
-          </div>
+          <x-cards.crypto-wallet title="BTC" subtitle="Bitcoin" address="bc1qsdgcwwnzn4psrf60fvcwnf6dqkpedu49ldw4tx">
+            <img class="" src="{{ Vite::images('coin-btc.png') }}" alt="" width="100" />
+          </x-cards.crypto-wallet>
         </div>
         <div class="col-xl-4">
-          <div class="card pricing-box text-center">
-            <div class="card-body p-4">
-              <div>
-
-                <div class="mt-3">
-                  <h5 class="mb-1">Professional</h5>
-                  <p class="text-muted">Professional plans</p>
-                </div>
-
-                <div class="py-3">
-                  <i class="uil uil-medal h1 text-primary"></i>
-                </div>
-              </div>
-
-
-              <ul class="list-unstyled plan-features mt-3">
-                <li>Users: <span class="text-primary fw-semibold">3</span></li>
-                <li>Storage: <span class="text-primary fw-semibold">10 GB</span></li>
-                <li>Domain: <span class="text-primary fw-semibold">1</span></li>
-                <li>Support: <span class="text-primary fw-semibold">Yes</span></li>
-                <li>Setup: <span class="text-primary fw-semibold">No</span></li>
-              </ul>
-
-              <div class="py-4">
-                <h3><sup><small>$</small></sup> 29/ <span class="font-size-13 text-muted">Per month</span></h3>
-              </div>
-
-              <div class="text-center plan-btn my-2">
-                <a href="#" class="btn btn-primary waves-effect waves-light">Sign up Now</a>
-              </div>
-            </div>
-          </div>
+          <x-cards.crypto-wallet title="ETH" subtitle="Ethereum" address="0xD140662736144Fe19031496216DceB6E0E276147">
+            <img class="" src="{{ Vite::images('coin-eth.png') }}" alt="" width="100" />
+          </x-cards.crypto-wallet>
         </div>
-
         <div class="col-xl-4">
-          <div class="card pricing-box text-center">
-            <div class="card-body p-4">
-              <div>
-
-                <div class="mt-3">
-                  <h5 class="mb-1">Unlimited</h5>
-                  <p class="text-muted">Unlimited plans</p>
-                </div>
-
-                <div class="py-3">
-                  <i class="uil uil-layer-group h1 text-primary"></i>
-                </div>
-              </div>
-
-
-              <ul class="list-unstyled plan-features mt-3">
-                <li>Users: <span class="text-primary fw-semibold">5</span></li>
-                <li>Storage: <span class="text-primary fw-semibold">40 GB</span></li>
-                <li>Domain: <span class="text-primary fw-semibold">4</span></li>
-                <li>Support: <span class="text-primary fw-semibold">Yes</span></li>
-                <li>Setup: <span class="text-primary fw-semibold">Yes</span></li>
-              </ul>
-
-              <div class="py-4">
-                <h3><sup><small>$</small></sup> 49/ <span class="font-size-13 text-muted">Per month</span></h3>
-              </div>
-
-              <div class="text-center plan-btn my-2">
-                <a href="#" class="btn btn-primary waves-effect waves-light">Sign up Now</a>
-              </div>
-            </div>
-          </div>
+          <x-cards.crypto-wallet title="USDT" subtitle="BNB Smart Chain"
+            address="0xD140662736144Fe19031496216DceB6E0E276147">
+            <img class="" src="{{ Vite::images('coin-usdt.png') }}" alt="" width="100" />
+          </x-cards.crypto-wallet>
         </div>
       </div>
       <!-- end row -->
     </div>
   </div>
-  <!-- end row -->
-
 </div>
-@endsection
 
-@push('scripts')
-@vite([
-'resources/assets/libs/jquery.counterup/jquery.counterup.min.js',
-// 'resources/assets/libs/apexcharts/apexcharts.min.js',
-// 'resources/assets/js/pages/dashboard.init.js',
-])
-@endpush
+{{-- MODALS --}}
+@includeIf($partials->get('deposit-dialog-btc'))
+@includeIf($partials->get('deposit-dialog-eth'))
+@includeIf($partials->get('deposit-dialog-usdt'))
+@endsection
